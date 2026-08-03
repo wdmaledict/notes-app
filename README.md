@@ -1,5 +1,4 @@
 # notes-app
-Notes application built while following the PHP For Beginners course on Laracasts.
 
 A simple PHP web application for managing notes, built while following the [Laracasts - PHP For Beginners]course.
 
