@@ -1,12 +1,13 @@
-<?php require 'partials/head.php'?>
-<?php require 'partials/nav.php'?>
-<?php require 'partials/banner.php'?>
+<?php require 'partials/head.php' ?>
+<?php require 'partials/nav.php' ?>
+<?php require 'partials/banner.php' ?>
 
 <main>
   <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-    <form>
+    <form method="POST">
       <div class="col-span-full">
         <label for="body" class="block text-sm/6 font-medium text-white">Note Description:</label>
+        
         <div class="mt-2">
           <textarea
             id="body"
@@ -15,9 +16,24 @@
             class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
           ></textarea>
         </div>
+
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <a 
+            href="/notes" 
+            class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Cancel
+          </a>
+          <button
+            type="submit"
+            class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </form>
   </div>
 </main>
 
-<?php require 'partials/footer.php'?>
+<?php require 'partials/footer.php' ?>
