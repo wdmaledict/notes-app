@@ -1,6 +1,8 @@
 <?php
 
-$config = require ('config.php');
+require 'Validator.php';
+
+$config = require 'config.php';
 
 $db = new Database($config['database']);
 
@@ -9,12 +11,8 @@ $pageName = 'Create Note';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $errors = [];
 
-  if (strlen($_POST['body']) === 0) {
-    $errors['body'] = 'Note is requared';
-  }
-
-  if(strlen($_POST['body']) > 1000) {
-    $errors['body'] = 'Note is to long';
+  if (!Validator::string($_POST['body'], 1, 1000)) {
+    $errors['body'] = 'A note of no more than 1000 characters is required';
   }
 
   if (empty($errors)) {
