@@ -1,20 +1,28 @@
 <?php
 
-$config = require('config.php');
+$config = require ('config.php');
 
 $db = new Database($config['database']);
 
 $pageName = 'Create Note';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
-  $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
+  $errors = [];
 
-    'body' => $_POST['body'],
-    'user_id'=> 1
-    
-  ]);
+  if (strlen($_POST['body']) === 0) {
+    $errors['body'] = 'Note is requared';
+  }
 
+  if(strlen($_POST['body']) > 1000) {
+    $errors['body'] = 'Note is to long';
+  }
+
+  if (empty($errors)) {
+    $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
+      'body' => $_POST['body'],
+      'user_id' => 1
+    ]);
+  }
 }
 
 require 'views/note-create.view.php';

@@ -13,8 +13,12 @@
             id="body"
             name="body"
             rows="3"
+            placeholder="Write your note here..."
             class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
-          ></textarea>
+          ><?= $_POST['body'] ?? '' ?></textarea>
+            <?php if (isset($errors['body'])) : ?>
+              <p class="mt-2 text-sm text-red-500"><?= $errors['body'] ?></p>
+            <?php endif; ?>
         </div>
 
         <div class="mt-6 flex items-center justify-end gap-x-6">
