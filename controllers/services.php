@@ -1,5 +1,5 @@
 <?php
 
-$pageName = 'Services';
-
-require "views/services.view.php";
+view('services.view.php', [
+  'heading' => 'Services'
+]);
